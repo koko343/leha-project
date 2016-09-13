@@ -17,5 +17,7 @@ namespace LehaProjectMVC.Data
             modelBuilder.Entity<Cart>().ToTable("Carts").HasKey(q => q.Id);
             modelBuilder.Entity<CartItem>().ToTable("CartItems").HasKey(q => q.Id);
         }
+
+        public System.Data.Entity.DbSet<LehaProjectMVC.Core.Entities.Product> Products { get; set; }
     }
 }

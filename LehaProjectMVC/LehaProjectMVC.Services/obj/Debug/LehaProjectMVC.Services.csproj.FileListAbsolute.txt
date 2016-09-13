@@ -1,0 +1,14 @@
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Services.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Services.pdb
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\obj\Debug\LehaProjectMVC.Services.csprojResolveAssemblyReference.cache
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\obj\Debug\LehaProjectMVC.Services.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\obj\Debug\LehaProjectMVC.Services.pdb
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Services.dll.config
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\EntityFramework.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Core.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Data.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Core.pdb
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\LehaProjectMVC.Data.pdb
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\EntityFramework.xml
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Services\bin\Debug\EntityFramework.SqlServer.xml

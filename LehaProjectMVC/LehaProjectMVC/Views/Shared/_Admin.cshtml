@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/admin.css" />
+</head>
+<body>
+    <div class="header-admin">
+        <h2 class="logout-header">You can logout any time @Html.ActionLink("Logout", "Logout")</h2>
+        @Html.ActionLink("Add new product", "AddProduct", null, new { @class = "link" }) | @Html.ActionLink("Edit", "EditProduct",null, new { @class = "link" }) | @Html.ActionLink("Add new product", "AddProduct",null, new { @class = "link" })
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -12,6 +12,12 @@ namespace LehaProjectMVC.App_Start
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Admin",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Admin", action = "AdminPanel" }
+            );
         }
     }
 }

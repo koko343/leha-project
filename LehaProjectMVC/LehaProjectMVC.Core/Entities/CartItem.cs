@@ -1,4 +1,5 @@
 ﻿using LehaProjectMVC.Core.Entities.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace LehaProjectMVC.Core.Entities
 {
