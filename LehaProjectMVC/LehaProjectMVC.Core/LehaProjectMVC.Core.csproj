@@ -52,7 +52,9 @@
     <Compile Include="Entities\Base\EntityBase.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\CartItem.cs" />
+    <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Enums\TypeEnum.cs" />
     <Compile Include="Interfaces\IDataContext.cs" />
     <Compile Include="Interfaces\Repositories\Base\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

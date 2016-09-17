@@ -155,6 +155,8 @@
     <Content Include="Views\Shared\_Admin.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Admin\AdminPanel.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\EditItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -171,9 +173,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\HandleErrorAttribute.cs" />
-    <Compile Include="Models\Account\LoginViewModel.cs" />
-    <Compile Include="Models\Shopping\Entities\CartItemViewModel.cs" />
-    <Compile Include="Models\Shopping\Entities\CartViewModel.cs" />
+    <Compile Include="Models\Admin\LoginViewModel.cs" />
+    <Compile Include="Models\Admin\ProductViewModel.cs" />
+    <Compile Include="Models\Shopping\CartItemViewModel.cs" />
+    <Compile Include="Models\Shopping\CartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +193,9 @@
       <Name>LehaProjectMVC.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\img\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

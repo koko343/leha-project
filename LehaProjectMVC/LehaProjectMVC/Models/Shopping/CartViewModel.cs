@@ -2,7 +2,7 @@
 using LehaProjectMVC.Core.Entities;
 using System.Linq;
 
-namespace LehaProjectMVC.Models.Shopping.Entities
+namespace LehaProjectMVC.Models.Shopping
 {
     public class CartViewModel
     {

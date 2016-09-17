@@ -16,6 +16,6 @@ namespace LehaProjectMVC.Core.Entities
         [Required]
         public string Type { get; set; }
 
-        public string ImgUrl { get; set; }
+        public int ImageId { get; set; }
     }
 }

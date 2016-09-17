@@ -1,6 +1,6 @@
 ﻿using LehaProjectMVC.Core.Entities;
 
-namespace LehaProjectMVC.Models.Shopping.Entities
+namespace LehaProjectMVC.Models.Shopping
 {
     public class CartItemViewModel
     {

@@ -5,6 +5,6 @@ C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\bin\Debug\EntityFr
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\bin\Debug\EntityFramework.xml
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\obj\Debug\LehaProjectMVC.Core.csprojResolveAssemblyReference.cache
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\obj\Debug\LehaProjectMVC.Core.dll
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\obj\Debug\LehaProjectMVC.Core.pdb
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC.Core\obj\Debug\LehaProjectMVC.Core.csprojResolveAssemblyReference.cache

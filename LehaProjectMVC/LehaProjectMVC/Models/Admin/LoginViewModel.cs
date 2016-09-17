@@ -1,4 +1,4 @@
-﻿namespace LehaProjectMVC.Models.Account
+﻿namespace LehaProjectMVC.Models.Admin
 {
     public class LoginViewModel
     {

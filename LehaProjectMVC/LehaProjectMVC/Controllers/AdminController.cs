@@ -1,17 +1,23 @@
 ﻿using System.Web.Mvc;
-using LehaProjectMVC.Models.Account;
+using LehaProjectMVC.Models.Admin;
 using System.Web.Security;
 using LehaProjectMVC.Services;
+using System.Web;
+using LehaProjectMVC.Services.modelsDTO;
+using LehaProjectMVC.Core.Entities;
+using LehaProjectMVC.Core.Enums;
 
 namespace LehaProjectMVC.Controllers
 {
     public class AdminController : Controller
     {
         private ProductService productService;
+        private ImageService imageService;
 
         public AdminController()
         {
             this.productService = new ProductService();
+            this.imageService = new ImageService();
         }
 
         public ActionResult Login()
@@ -49,7 +55,85 @@ namespace LehaProjectMVC.Controllers
         [Authorize]
         public ActionResult AddProduct()
         {
+            return View(new ProductViewModel());
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddProduct(ProductViewModel model, HttpPostedFileBase image)
+        {
+            if(model != null && image != null)
+            {
+                ProductDTO productDTO = new ProductDTO();
+                productDTO.Description = model.Description;
+                productDTO.Name = model.Name;
+                productDTO.Price = model.Price;
+                productDTO.Type = model.Type.ToString();
+                productDTO.ImageId = this.imageService.CreateImage(image);
+
+
+                this.productService.CreateProduct(productDTO);
+
+                return RedirectToAction("AdminPanel");
+            }
+
             return View();
+        }
+
+        [Authorize]
+        public ActionResult EditItem(int id)
+        {
+            var product = this.productService.GetById(id);
+
+            ProductViewModel model = new ProductViewModel();
+            model.Id = product.Id;
+            model.Description = product.Description;
+            model.Name = product.Name;
+            model.Price = product.Price;
+            model.ImageId = product.ImageId;
+            if(product.Type == TypeEnum.Original.ToString())
+            {
+                model.Type = TypeEnum.Original;
+            }else if(product.Type == TypeEnum.Sale.ToString())
+            {
+                model.Type = TypeEnum.Sale;
+            }
+            else
+            {
+                model.Type = TypeEnum.All;
+            }
+
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult EditItem(ProductViewModel model)
+        {
+            if (model != null)
+            {
+                ProductDTO productDTO = new ProductDTO();
+                productDTO.Id = model.Id;
+                productDTO.Description = model.Description;
+                productDTO.Name = model.Name;
+                productDTO.Price = model.Price;
+                productDTO.ImageId = model.ImageId;
+                productDTO.Type = model.Type.ToString();
+
+
+                this.productService.EditProduct(productDTO);
+                return RedirectToAction("AdminPanel");
+            }
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult DeleteItem(int id)
+        {
+            this.productService.DeleteProduct(id);
+
+            return RedirectToAction("AdminPanel");
         }
 
     }
