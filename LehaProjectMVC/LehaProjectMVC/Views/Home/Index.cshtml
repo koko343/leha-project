@@ -1,30 +1,53 @@
-﻿@{
+﻿@model PagedList.IPagedList<LehaProjectMVC.Core.Entities.Product>
+@using PagedList.Mvc
+
+@{
     ViewBag.Title = "Home";
 }
 
 @section Body
 {
-    <div class="row">
-        <div class="col-md-1">
 
-        </div>
-        <div class="col-md-3 item-main-page">
-            <div class="item-body">
+    <div class="wrapper">
+        <ul class="filter">
+            <li>@Html.ActionLink("ALL ITEMS", "AllItems", "Home")</li>
+            <li>@Html.ActionLink("ORIGINAL PAINTINGS", "OrigPaintings", "Home")</li>
+            <li>@Html.ActionLink("SALE", "Sale", "Home")</li>
+        </ul>
+    </div>
 
+    <div id="presonal-list">
+        @for (int i = 0; i < Model.Count() + 1; i += 3)
+    {
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    @foreach (var item in Model.Skip(i).Take(3))
+                    {
+                        <div class="col-md-4 col-sm-3  col-xs-4 item-main-page">
+                            <a href="@Url.Action("ItemPage", "Home", new { id = item.Id })">
+                                <div class="image-hover">
+                                    <div class="image" style="background-image:url(@item.Image.ImageUrl)">
+                                        <div class="overlay">
+                                            <span class="name">@item.Name</span>
+                                            <span class="price">USD @item.Price</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 item-main-page">
-            <div class="item-body">
+        }
+    </div>
 
-            </div>
-        </div>
-        <div class="col-md-3 item-main-page">
-            <div class="item-body">
-
-            </div>
-        </div>
-        <div class="col-md-1">
-
-        </div>
+    <div class="pagination-block">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions
+   {
+       ContainerDivClasses = new[] { "pagination-con" },
+       UlElementClasses = new[] { "pagination-ul" },
+       LiElementClasses = new[] { "pagination-li" },
+       MaximumPageNumbersToDisplay = 5
+   }, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "presonal-list" }))
     </div>
 }

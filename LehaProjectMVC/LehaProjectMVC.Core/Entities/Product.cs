@@ -1,5 +1,6 @@
 ﻿using LehaProjectMVC.Core.Entities.Base;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LehaProjectMVC.Core.Entities
 {
@@ -8,7 +9,6 @@ namespace LehaProjectMVC.Core.Entities
         [Required]
         public string Name { get; set; }
 
-        [Required]
         public decimal Price { get; set; }
 
         public string Description { get; set; }
@@ -17,5 +17,8 @@ namespace LehaProjectMVC.Core.Entities
         public string Type { get; set; }
 
         public int ImageId { get; set; }
+
+        [ForeignKey("ImageId")]
+        public virtual Image Image { get; set; }
     }
 }

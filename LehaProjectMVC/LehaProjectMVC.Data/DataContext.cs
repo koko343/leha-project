@@ -20,5 +20,7 @@ namespace LehaProjectMVC.Data
         }
 
         public System.Data.Entity.DbSet<LehaProjectMVC.Core.Entities.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<LehaProjectMVC.Core.Entities.Image> Images { get; set; }
     }
 }

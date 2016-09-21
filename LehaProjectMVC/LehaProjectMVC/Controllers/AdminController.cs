@@ -64,6 +64,7 @@ namespace LehaProjectMVC.Controllers
         {
             if(model != null && image != null)
             {
+
                 ProductDTO productDTO = new ProductDTO();
                 productDTO.Description = model.Description;
                 productDTO.Name = model.Name;
@@ -131,9 +132,12 @@ namespace LehaProjectMVC.Controllers
         [Authorize]
         public ActionResult DeleteItem(int id)
         {
-            this.productService.DeleteProduct(id);
+            if(this.imageService.DeleteItemById(this.productService.GetById(id).ImageId))
+            {
+                return RedirectToAction("AdminPanel");
+            }
 
-            return RedirectToAction("AdminPanel");
+            return null;
         }
 
     }

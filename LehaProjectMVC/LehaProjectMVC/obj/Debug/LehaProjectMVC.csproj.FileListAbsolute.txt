@@ -62,3 +62,7 @@ C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\obj\Debug\LehaProjectMV
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\obj\Debug\LehaProjectMVC.pdb
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\bin\EntityFramework.SqlServer.dll
 C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\bin\EntityFramework.SqlServer.xml
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\bin\PagedList.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\bin\PagedList.Mvc.dll
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\bin\PagedList.xml
+C:\Users\Ilia\Desktop\leha\LehaProjectMVC\LehaProjectMVC\bin\PagedList.Mvc.xml

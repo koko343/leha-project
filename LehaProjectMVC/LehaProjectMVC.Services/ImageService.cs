@@ -5,7 +5,6 @@ using LehaProjectMVC.Data.Repositories.Base;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using LehaProjectMVC.Core.Entities;
 
 namespace LehaProjectMVC.Services
 {
@@ -25,21 +24,40 @@ namespace LehaProjectMVC.Services
 
         public int CreateImage(HttpPostedFileBase image)
         {
-            if(image != null)
+            if (image != null)
             {
                 Image img = new Image();
                 string GUI = "/Content/img/" + image.FileName;
-
+                
                 img.Name = image.FileName;
                 img.ImageUrl = GUI;
                 image.SaveAs(HttpContext.Current.Server.MapPath(GUI));
 
                 this.imageRepository.Add(img);
+                
                 this.imageRepository.SaveChanges();
 
             }
+            
+            return this.imageRepository.GetAll().ToList<Image>().Last().Id; ;
+        }
 
-            return this.imageRepository.GetAll().Count();
+        public bool DeleteItemById(int id)
+        {
+            if(id!=0)
+            {
+                var imageToDelete = this.imageRepository.GetById(id);
+
+                if (System.IO.File.Exists(HttpContext.Current.Server.MapPath(imageToDelete.ImageUrl)))
+                {
+                    System.IO.File.Delete(HttpContext.Current.Server.MapPath(imageToDelete.ImageUrl));
+                }
+
+                this.imageRepository.Delete(imageToDelete);
+                this.imageRepository.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
