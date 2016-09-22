@@ -1,11 +1,19 @@
 ﻿using System.Collections.Generic;
 using LehaProjectMVC.Core.Entities;
 using System.Linq;
+using System;
 
 namespace LehaProjectMVC.Models.Shopping
 {
     public class CartViewModel
     {
+        public DateTime DateCreated { get; set; }
+
+        public IEnumerable<CartItemViewModel> CartList
+        {
+            get { return itemCollection; }
+        }
+
         private List<CartItemViewModel> itemCollection = new List<CartItemViewModel>();
 
         public void AddItem(Product product, int quantity)
@@ -43,9 +51,5 @@ namespace LehaProjectMVC.Models.Shopping
             itemCollection.Clear();
         }
 
-        public IEnumerable<CartItemViewModel> Lines
-        {
-            get { return itemCollection; }
-        }
     }
 }

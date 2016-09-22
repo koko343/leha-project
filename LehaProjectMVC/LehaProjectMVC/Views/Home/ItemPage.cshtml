@@ -1,5 +1,4 @@
 ﻿@model LehaProjectMVC.Core.Entities.Product
-@Page ValidateRequest=false
 
 @{
     ViewBag.Title = "ItemPage";
@@ -7,14 +6,13 @@
 }
 
 @section Body{
-    
+
     <div>
         <div class="row item-wrapper">
             <div class="col-md-8 col-md-offset-2">
                 <div class="col-md-6 item-image-wrapper">
-                    <div class="item-image" style="background-image:url(@Model.Image.ImageUrl)"></div>
+                   <div class="item-image" style="background-image:url(@Model.Image.ImageUrl)"></div>
                 </div>
-
                 <div class="col-md-5 item-info">
                     <div class="item-title">
                         @Model.Name
@@ -22,18 +20,32 @@
                     <div class="item-description">
                         @Model.Description
                     </div>
-                    <div class="item-price">
-                        <div class="col-md-6 col-xs-6" style="padding:0; margin:0; font-weight:600">Price : @Model.Price $</div>
+                    <div style="margin-top:30px">
+                        <div class="col-md-6 col-xs-6 item-price">Price : @Model.Price $</div>
 
-                        <div class="col-md-6 col-xs-6"><button type="button">Add To Busket</button></div>
+                        <div class="col-md-6 col-xs-6"><a href="@Url.Action("AddToCart", "Cart", new { id = Model.Id})"><div class="add-basket">Add To Busket</div></a></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    }
+
+}
+
+@section scripts{
+    <script type="text/javascript">
+
+        jQuery(function ($) {
+            $('.item-image').click(function () {
+                var image_background = "<div id='image-background' onClick='closeImage()'><div class='row slide-top-padding'></div><div class='col-md-8 col-md-offset-2'><div id='image-slide' style='background-image:url(@Model.Image.ImageUrl)'></div></div></div>"
+                $('body').append(image_background);
+            });
+        });
+
+        function closeImage() {
+            $('#image-background').remove();
+        }
+
+    </script>
+}
 

@@ -10,7 +10,7 @@
 
     <div class="wrapper">
         <ul class="filter">
-            <li>@Html.ActionLink("ALL ITEMS", "AllItems", "Home")</li>
+            <li>@Html.ActionLink("ALL ITEMS", "Index", "Home")</li>
             <li>@Html.ActionLink("ORIGINAL PAINTINGS", "OrigPaintings", "Home")</li>
             <li>@Html.ActionLink("SALE", "Sale", "Home")</li>
         </ul>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="pagination-block">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions
+        @Html.PagedListPager(Model, page => Url.Action(ViewBag.ActionToGo, new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions
    {
        ContainerDivClasses = new[] { "pagination-con" },
        UlElementClasses = new[] { "pagination-ul" },

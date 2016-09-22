@@ -2,6 +2,7 @@
 using PagedList.Mvc;
 using PagedList;
 using System.Web.Mvc;
+using LehaProjectMVC.Core.Entities;
 
 namespace LehaProjectMVC.Controllers
 {
@@ -17,11 +18,12 @@ namespace LehaProjectMVC.Controllers
         public ActionResult Index(int? page)
         {
             var products = this.productService.GetAll();
+
             if (products != null)
             {
                 int pageSize = 9;
                 int pageNumber = (page ?? 1);
-
+                ViewBag.ActionToGo = "Index";
                 return View(products.ToPagedList(pageNumber, pageSize));
             }
 
@@ -29,19 +31,51 @@ namespace LehaProjectMVC.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult Index(int? page, int id)
+        public ActionResult OrigPaintings(int? page)
         {
-            return View();
+            var products = this.productService.GetAllByType("Original");
+
+            if (products != null)
+            {
+                int pageSize = 9;
+                int pageNumber = (page ?? 1);
+                ViewBag.ActionToGo = "OrigPaintings";
+                return View("Index",products.ToPagedList(pageNumber, pageSize));
+            }
+
+            return RedirectToAction("Index", "Error");
+
+        }
+
+        public ActionResult Sale(int? page)
+        {
+            var products = this.productService.GetAllByType("Sale");
+
+            if (products != null)
+            {
+                int pageSize = 9;
+                int pageNumber = (page ?? 1);
+                ViewBag.ActionToGo = "Sale";
+                return View("Index", products.ToPagedList(pageNumber, pageSize));
+            }
+
+            return RedirectToAction("Index", "Error");
+
         }
 
         public ActionResult ItemPage(int id)
         {
+            Cart a = (Cart)Session["Cart"];
             return View(this.productService.GetById(id));
         }
 
 
-            public ActionResult About()
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult SortedItems()
         {
             return View();
         }

@@ -274,18 +274,16 @@
 .item-image-wrapper {
     height: 400px;
     overflow: hidden;
-    opacity:1;
-    transition: all 1s ease;
+    opacity:0.9;
+    transition: all 1s ease
     -moz-transition: all 1s ease;
     -ms-transition: all 1s ease;
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    transition: all .4s ease-in-out;
 }
 
     .item-image-wrapper:hover {
-        opacity: 0.9;
+        opacity: 1;
         cursor:pointer;
     }
 
@@ -328,17 +326,62 @@
 
 .item-price {
     margin-top: 10%;
-    font-size: 14px;
+    font-size: 15px;
+    padding:0; 
+    margin:0; 
+    font-weight:600
 }
 
-.bout-wrapper {
-    padding-bottom: 20px;
+.add-basket{
+    margin-top: -6px;
+    display:block;
+    width: 120px;
+    height: 30px;
+    text-align:center;
+    padding:3px;
+    border: 1px solid gray;
 }
+
+.add-basket:hover{
+    color:white;
+    cursor:pointer;
+    background-color:rgba(0,0,0,0.8)
+}
+
+#image-background{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:1000px;
+    background-color:rgba(0,0,0,0.9);
+}
+
+#image-slide{
+    width:100%;
+    height: 600px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide-top-padding{
+    width:100%;
+    height:25%;
+}
+/*about*/
 
 .about-container {
     text-align: center;
-    padding-top: 30px;
-    height: 400px;
+    padding-top: 70px;
+    height: 530px;
+}
+
+/*cart*/
+
+.cart{
+    background-color:black;
+    width:100%;
+    height:1000px;
 }
 
 
@@ -346,6 +389,10 @@
     .logo-wrapper-collapse {
         width: 100%;
     }
+
+    #image-background{
+    height:1370px;
+}
 
     .logo-wrapper {
         display: none;
@@ -381,7 +428,37 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width:1027px) {
+
+    #image-background {
+        height: 1200px;
+    }
+
+    .logo-wrapper-collapse {
+        display: none;
+    }
+
+    .logo-wrapper {
+        overflow: visible;
+        width: 100%;
+    }
+
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+
+    .footer {
+        margin-top: 30px;
+    }
+}
+
+@media (min-width:1027px) {
     .logo-wrapper-collapse {
         display: none;
     }

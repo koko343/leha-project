@@ -27,6 +27,11 @@ namespace LehaProjectMVC.Services
             return this.productRepository.GetById(id);
         }
 
+        public List<Product> GetAllByType(string type)
+        {
+            return this.productRepository.GetAll().Where(x => x.Type == type).ToList<Product>();
+        }
+
         public void CreateProduct(ProductDTO productDTO)
         {
             if(productDTO != null)

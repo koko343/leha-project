@@ -54,10 +54,10 @@
 
     <div class="footer">
         <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("HOME", "AllItems", "Home")</li>
-            <li>@Html.ActionLink("ABOUT", "OrigPaintings", "Home")</li>
-            <li>@Html.ActionLink("CONTAC US", "Sale", "Home")</li>
-            <li>@Html.ActionLink("SHIPPING NAD POLICES", "Sale", "Home")</li>
+            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+            <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
+            <li>@Html.ActionLink("CONTAC US", "ContactUs", "Home")</li>
+            <li>@Html.ActionLink("SHIPPING NAD POLICES", "Shipping", "Home")</li>
         </ul>
     </div>
 
@@ -66,6 +66,8 @@
             ALL RIGHTS RESERVED | POWERED BY ILYAS343
         </div>
     </nav>
+
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", false)
 </body>
 </html>
