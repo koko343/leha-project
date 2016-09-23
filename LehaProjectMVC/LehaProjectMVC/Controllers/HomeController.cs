@@ -6,6 +6,7 @@ using LehaProjectMVC.Core.Entities;
 
 namespace LehaProjectMVC.Controllers
 {
+    [HandleError]
     public class HomeController : Controller
     {
         private ProductService productService;
@@ -24,6 +25,7 @@ namespace LehaProjectMVC.Controllers
                 int pageSize = 9;
                 int pageNumber = (page ?? 1);
                 ViewBag.ActionToGo = "Index";
+                ViewBag.ItemsInCart = CartCheck();
                 return View(products.ToPagedList(pageNumber, pageSize));
             }
 
@@ -40,6 +42,7 @@ namespace LehaProjectMVC.Controllers
                 int pageSize = 9;
                 int pageNumber = (page ?? 1);
                 ViewBag.ActionToGo = "OrigPaintings";
+                ViewBag.ItemsInCart = CartCheck();
                 return View("Index",products.ToPagedList(pageNumber, pageSize));
             }
 
@@ -56,6 +59,7 @@ namespace LehaProjectMVC.Controllers
                 int pageSize = 9;
                 int pageNumber = (page ?? 1);
                 ViewBag.ActionToGo = "Sale";
+                ViewBag.ItemsInCart = CartCheck();
                 return View("Index", products.ToPagedList(pageNumber, pageSize));
             }
 
@@ -63,20 +67,42 @@ namespace LehaProjectMVC.Controllers
 
         }
 
+        [ChildActionOnly]
+        public int CartCheck()
+        {
+            Cart currentCart = (Cart)Session["Cart"];
+
+            if (currentCart != null && currentCart.CartItems != null)
+            {
+               return currentCart.CartItems.Count;
+            }
+
+            return 0;
+        }
+
         public ActionResult ItemPage(int id)
         {
-            Cart a = (Cart)Session["Cart"];
+            ViewBag.IsInCart = false;
+            ViewBag.ItemsInCart = 0;
+
+            Cart currentCart = (Cart)Session["Cart"];
+            if (currentCart != null && currentCart.CartItems != null)
+            {
+                ViewBag.ItemsInCart = currentCart.CartItems.Count;
+
+                if (currentCart.CartItems.Find(i => i.ProductId == id) != null)
+                {
+                    ViewBag.IsInCart = true;
+                }
+            }
+            
             return View(this.productService.GetById(id));
         }
 
 
         public ActionResult About()
         {
-            return View();
-        }
-
-        public ActionResult SortedItems()
-        {
+            ViewBag.ItemsInCart = CartCheck();
             return View();
         }
     }

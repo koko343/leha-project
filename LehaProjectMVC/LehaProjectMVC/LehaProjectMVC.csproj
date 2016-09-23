@@ -170,6 +170,8 @@
     <Content Include="Views\Home\ItemPage.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\_CartItemPartial.cshtml" />
+    <Content Include="Views\Cart\KeepShoppint.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

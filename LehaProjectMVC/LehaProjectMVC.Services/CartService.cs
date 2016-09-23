@@ -22,7 +22,7 @@ namespace LehaProjectMVC.Services
             this.cartRepository = new Repository<Cart>(this.context);
         }
 
-        public CartItem NewCartItem(int id, int quantity, Cart cart)
+        public CartItem NewCartItem(int id, Cart cart)
         {
             if(id!=0)
             {
@@ -34,7 +34,6 @@ namespace LehaProjectMVC.Services
                 {
                     cartItem = new CartItem();
                     cartItem.Product = product;
-                    cartItem.Quantity = quantity;
                     cartItem.ProductId = product.Id;
                     cartItem.CartId = cart.Id;
                    

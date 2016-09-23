@@ -8,6 +8,7 @@ using LehaProjectMVC.Core.Enums;
 
 namespace LehaProjectMVC.Controllers
 {
+    [HandleError]
     public class AdminController : Controller
     {
         private ProductService productService;

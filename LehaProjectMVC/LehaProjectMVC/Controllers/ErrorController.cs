@@ -2,6 +2,7 @@
 
 namespace LehaProjectMVC.Controllers
 {
+    [HandleError]
     public class ErrorController : Controller
     {
         // GET: Error
