@@ -18,7 +18,7 @@
             <div class="col-md-6 col-sm-4 hidden-xs"><div class="clear-cart"><a href="@Url.Action("ClearCart", "Cart")">Clear All</a></div></div>
             <div class="col-md-6 col-sm-8 col-xs-12 checkout-btm-margin">
                 <div class="col-md-6 col-sm-6 col-xs-12 total-sum">Total : @Model.Total</div>
-                <div class="col-md-6 col-sm-6 col-xs-12"><div class="checkout-btn"><a href="@Url.Action("Checkout", "Cart", new { cartId = Model.Id})">Checkout</a></div></div>
+                <div class="col-md-6 col-sm-6 col-xs-12"><div class="checkout-btn"><a href="@Url.Action("Checkout", "Cart")">Checkout</a></div></div>
             </div>
         </div>
     </div>

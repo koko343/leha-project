@@ -39,7 +39,7 @@ namespace LehaProjectMVC.Services
 
             }
             
-            return this.imageRepository.GetAll().ToList<Image>().Last().Id; ;
+            return this.imageRepository.GetAll().ToList<Image>().Last().Id;
         }
 
         public bool DeleteItemById(int id)

@@ -1,8 +1,7 @@
 ﻿using LehaProjectMVC.Services;
-using PagedList.Mvc;
 using PagedList;
 using System.Web.Mvc;
-using LehaProjectMVC.Core.Entities;
+using LehaProjectMVC.Models.Shopping;
 
 namespace LehaProjectMVC.Controllers
 {
@@ -70,11 +69,11 @@ namespace LehaProjectMVC.Controllers
         [ChildActionOnly]
         public int CartCheck()
         {
-            Cart currentCart = (Cart)Session["Cart"];
+            CartViewModel currentCart = (CartViewModel)Session["Cart"];
 
-            if (currentCart != null && currentCart.CartItems != null)
+            if (currentCart != null && currentCart.CartList != null)
             {
-               return currentCart.CartItems.Count;
+               return currentCart.CartList.Count;
             }
 
             return 0;
@@ -85,12 +84,12 @@ namespace LehaProjectMVC.Controllers
             ViewBag.IsInCart = false;
             ViewBag.ItemsInCart = 0;
 
-            Cart currentCart = (Cart)Session["Cart"];
-            if (currentCart != null && currentCart.CartItems != null)
+            CartViewModel currentCart = (CartViewModel)Session["Cart"];
+            if (currentCart != null && currentCart.CartList != null)
             {
-                ViewBag.ItemsInCart = currentCart.CartItems.Count;
+                ViewBag.ItemsInCart = currentCart.CartList.Count;
 
-                if (currentCart.CartItems.Find(i => i.ProductId == id) != null)
+                if (currentCart.CartList.Find(i => i.ProductId == id) != null)
                 {
                     ViewBag.IsInCart = true;
                 }
